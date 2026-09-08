@@ -1,0 +1,8 @@
+mss
+opencv-python
+pyautogui
+numpy
+pyclick
+interception-python
+python-dotenv
+psycopg[binary]
