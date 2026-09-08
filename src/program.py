@@ -1,4 +1,4 @@
-from src.pipeline import Pipeline
+from .pipeline import Pipeline
 
 
 class Program(Pipeline):
