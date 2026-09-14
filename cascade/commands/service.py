@@ -58,7 +58,7 @@ class LogExceptionCommand(Command):
         self.exception = exception
 
     def body(self):
-        logger.log(logging.ERROR, self.exception, exc_info=True)
+        logger.log(logging.ERROR, "Exception", exc_info=self.exception)
 
 class DynamicLogCommand(Command):
     """

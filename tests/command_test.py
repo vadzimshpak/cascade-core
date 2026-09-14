@@ -16,4 +16,7 @@ class CommandTests(unittest.TestCase):
         LogCommand(logging.INFO, "test") >> Execute(self.stack)
 
     def test_dynamic_log_command(self):
-        LogExceptionCommand(Exception("test")) >> Execute(self.stack)
+        try:
+            raise Exception("test")
+        except Exception as e:
+            LogExceptionCommand(e) >> Execute(self.stack)
