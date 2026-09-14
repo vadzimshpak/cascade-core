@@ -6,7 +6,7 @@ from cascade.pipeline import Pipeline
 from cascade.operator import Execute, Store, Param
 from cascade.stack import Stack
 
-from commands import *
+from cascade.commands import *
 
 
 class TestPipeline1(Pipeline):

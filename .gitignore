@@ -2,3 +2,5 @@
 .vscode
 *.pyc
 log.txt
+dist
+cascade_core.egg-info
