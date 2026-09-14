@@ -4,6 +4,14 @@
   <img src="./media/logo.png" width="250">
 </p>
 
+<div align="center">
+
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/downloads/)
+[![Version 0.1.0](https://img.shields.io/badge/Version-0.1.0-green)](https://github.com/vadzimshpak/cascade-core/releases)
+[![Tests](https://img.shields.io/github/actions/workflow/status/vadzimshpak/cascade-core/main.yml?branch=main&label=Tests)](https://github.com/vadzimshpak/cascade-core/actions)
+
+</div>
+
 Arch:
 - Command - smallest part
 - Pipeline - mix of commands
