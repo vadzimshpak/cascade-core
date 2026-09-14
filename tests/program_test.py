@@ -3,7 +3,7 @@ import unittest
 
 from src.program import Program
 from src.pipeline import Pipeline
-from src.operator import Execute, JumpOnRaise, Store, Param
+from src.operator import Execute, Store, Param
 from src.stack import Stack
 
 from commands import *

@@ -15,6 +15,10 @@ random.seed(time.time())
 
 
 class SleepCommand(Command):
+    """
+    Sleep n seconds
+    """
+    
     def __init__(self, secs: int):
         super().__init__()
         self.secs = secs
@@ -23,6 +27,10 @@ class SleepCommand(Command):
         time.sleep(self.secs)
 
 class SleepRandomRangeCommand(Command):
+    """
+    Sleep a random number of seconds within a range
+    """
+
     def __init__(self, secs_from: int, secs_to: int):
         super().__init__()
         self.secs_from = secs_from
@@ -32,6 +40,10 @@ class SleepRandomRangeCommand(Command):
         time.sleep(random.randrange(self.secs_from, self.secs_to))
 
 class LogCommand(Command):
+    """
+    Log a message at a specified level
+    """
+
     def __init__(self, level: int, message: str):
         super().__init__()
         self.level = level
@@ -41,6 +53,10 @@ class LogCommand(Command):
         logger.log(self.level, self.message)
 
 class LogExceptionCommand(Command):
+    """
+    Log an exception at the ERROR level
+    """
+
     def __init__(self, exception: object):
         super().__init__()
         self.exception = exception
@@ -49,6 +65,10 @@ class LogExceptionCommand(Command):
         logger.log(logging.ERROR, self.exception)
 
 class DynamicLogCommand(Command):
+    """
+    Log a dynamic message at a specified level
+    """
+
     def __init__(self, level: int):
         super().__init__()
         self.level = level
@@ -58,6 +78,10 @@ class DynamicLogCommand(Command):
         logger.log(self.level, message)
 
 class SetStackCommand(Command):
+    """
+    Set the stack to a specified value, need to use with Store(<var>) operator!
+    """
+
     def __init__(self, value):
         super().__init__()
         self.value = value
@@ -66,6 +90,10 @@ class SetStackCommand(Command):
         return self.value
 
 class DebugStackCommand(Command):
+    """
+    Debug the current stack
+    """
+
     def __init__(self):
         super().__init__()
 
@@ -73,6 +101,10 @@ class DebugStackCommand(Command):
         logger.debug("Stack: " + repr(self._stack))
         
 class RaiseCommand(Command):
+    """
+    Raise an exception
+    """
+
     def __init__(self):
         super().__init__()
 
