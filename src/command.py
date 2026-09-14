@@ -29,7 +29,7 @@ class Command:
         result = self.body()
 
         if type(result) is str:
-            logger.debug(f"Got {result if len(result) < 100 else result[:100] + "..."} from {type(self).__name__}")
+            logger.debug(f"Got {result if len(result) < 100 else result[:100] + '...'} from {type(self).__name__}")
         else:
             logger.debug(f"Got {result} from {type(self).__name__}")
 
