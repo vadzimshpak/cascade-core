@@ -14,5 +14,10 @@ dependencies = [
     "requests",
 ]
 
+[project.optional-dependencies]
+test = [
+    "pytest",
+]
+
 [tool.setuptools.packages.find]
 include = ["cascade*", "commands*"]
