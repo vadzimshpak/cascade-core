@@ -41,6 +41,9 @@ class TGHandler(logging.Handler):
         if not self.image_on_error:
             return
 
+        if record.levelno < logging.ERROR:
+            return
+
         with mss.mss() as sct:
             monitor = sct.monitors[1]
             sct_img = sct.grab(monitor)
