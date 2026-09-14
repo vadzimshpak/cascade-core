@@ -19,7 +19,6 @@ class Command:
         self._stack: Stack = None
         self._skip_on_raise = False
         self._jump_on_raise = None
-        self._raise_on_success = False
         self._jump_on_success = None
         self._vars = []
 
@@ -46,7 +45,7 @@ class Command:
         return self._stack.top_value(self._vars[number])
 
     def __rshift__(self, command: Operator) -> Self | object | Exception:
-        from .operator import Execute, Store, RaiseSkip, JumpOnRaise, JumpOnSuccess, RaiseOnSuccess
+        from .operator import Execute, Store, RaiseSkip, JumpOnRaise, JumpOnSuccess
 
         if type(command) == Execute:
             try:
@@ -59,9 +58,6 @@ class Command:
 
         elif type(command) == RaiseSkip:
             self._skip_on_raise = True
-
-        elif type(command) == RaiseOnSuccess:
-            self._raise_on_success = True
 
         elif type(command) == JumpOnRaise:
             self._jump_on_raise = command.command_index

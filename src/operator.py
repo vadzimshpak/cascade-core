@@ -27,10 +27,6 @@ class RaiseSkip(Operator):
     def __init__(self):
         pass
 
-class RaiseOnSuccess(Operator):
-    def __init__(self):
-        super().__init__()
-
 class JumpOnRaise(Operator):
     def __init__(self, command_index: int):
         super().__init__()

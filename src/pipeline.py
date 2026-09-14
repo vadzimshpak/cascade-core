@@ -37,11 +37,6 @@ class Pipeline(Command):
                     logger.debug(f"{type(self).__name__} raise")
                     raise result
 
-            if subject._raise_on_success:
-                logger.debug(f"{type(self).__name__} success raise")
-                raise Exception("Success raise")
-
-
             if subject._jump_on_success is not None:
                 i = subject._jump_on_success
                 logger.debug(f"{type(self).__name__} jump to {i} subject")
