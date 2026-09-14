@@ -4,7 +4,6 @@ from .src.operator import (
     JumpOnSuccess,
     Operator,
     Param,
-    RaiseOnSuccess,
     RaiseSkip,
     Store,
 )
