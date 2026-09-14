@@ -28,11 +28,11 @@ class RaiseSkip(Operator):
         pass
 
 class JumpOnRaise(Operator):
-    def __init__(self, command_index: int):
+    def __init__(self, command_label: str):
         super().__init__()
-        self.command_index = command_index
+        self.command_label = command_label
 
 class JumpOnSuccess(Operator):
-    def __init__(self, command_index: int):
+    def __init__(self, command_label: str):
         super().__init__()
-        self.command_index = command_index
+        self.command_label = command_label

@@ -102,11 +102,12 @@ class RaiseCommand(Command):
     Raise an exception
     """
 
-    def __init__(self):
+    def __init__(self, message: str = "Test raise"):
         super().__init__()
+        self.message = message
 
     def body(self):
-        raise Exception("Test raise")
+        raise Exception(self.message)
 
 class Label(Command):
     def __init__(self, label_name: str):

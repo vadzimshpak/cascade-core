@@ -61,9 +61,9 @@ class Command:
             self._skip_on_raise = True
 
         elif type(command) == JumpOnRaise:
-            self._jump_on_raise = command.command_index
+            self._jump_on_raise = command.command_label
 
         elif type(command) == JumpOnSuccess:
-            self._jump_on_success = command.command_index
+            self._jump_on_success = command.command_label
 
         return self
