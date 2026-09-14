@@ -106,3 +106,11 @@ class RaiseCommand(Command):
 
     def body(self):
         raise Exception("Test raise")
+
+class Label(Command):
+    def __init__(self, label_name: str):
+        super().__init__()
+        self.label_name = label_name
+
+    def body(self):
+        pass

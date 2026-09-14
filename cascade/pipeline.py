@@ -10,10 +10,20 @@ class Pipeline(Command):
 
     def _process_chain(self, chain: list):
         from .operator import Execute
+        from .commands import Label
+
         self._stack.push({} if not self._stack.top() else self._stack.top().copy())
         self._stack.update("__debug_name", type(self).__name__)
 
         i = 0
+
+        def get_label_index(label_name: str):
+            for index, subject in enumerate(chain):
+                if isinstance(subject, Label) and subject.label_name == label_name:
+                    return index
+
+            raise Exception(f"Label {label_name} not found in pipeline")
+
         while i < len(chain):
             subject = chain[i]
             i += 1
@@ -25,8 +35,9 @@ class Pipeline(Command):
             result = subject >> Execute(self._stack)
 
             if isinstance(result, Exception):
+                logger.debug(result)
                 if subject._jump_on_raise is not None:
-                    i = subject._jump_on_raise
+                    i = get_label_index(subject._jump_on_raise)
                     logger.debug(f"{type(self).__name__} jump to {i} subject")
                     continue
 
@@ -37,8 +48,9 @@ class Pipeline(Command):
                     logger.debug(f"{type(self).__name__} raise")
                     raise result
 
+
             if subject._jump_on_success is not None:
-                i = subject._jump_on_success
+                i = get_label_index(subject._jump_on_success)
                 logger.debug(f"{type(self).__name__} jump to {i} subject")
                 continue
 
