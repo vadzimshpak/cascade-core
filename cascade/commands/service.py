@@ -65,13 +65,14 @@ class DynamicLogCommand(Command):
     Log a dynamic message at a specified level
     """
 
-    def __init__(self, level: int):
+    def __init__(self, level: int, format: str = "%s"):
         super().__init__()
         self.level = level
+        self.format = format
 
     def body(self):
         message = self.get_param_value(0)
-        logger.log(self.level, message)
+        logger.log(self.level, self.format % message)
 
 class SetStackCommand(Command):
     """

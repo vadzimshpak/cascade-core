@@ -28,7 +28,7 @@ class TestPipeline2(Pipeline):
         self.pipeline = [
             DebugStackCommand(),
             LogCommand(logging.DEBUG, "test_1"),
-            Param(self._vars[0]) >> Param("test_param") >> DynamicLogCommand(logging.DEBUG),
+            Param(self._vars[0]) >> Param("test_param") >> DynamicLogCommand(logging.DEBUG, "param: %s"),
 
             SetStackCommand("Test1") >> Store("result")
         ]
