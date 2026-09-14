@@ -1,10 +1,10 @@
 from dotenv import load_dotenv
 import unittest
 
-from src.program import Program
-from src.pipeline import Pipeline
-from src.operator import Execute, Store, Param
-from src.stack import Stack
+from cascade.program import Program
+from cascade.pipeline import Pipeline
+from cascade.operator import Execute, Store, Param
+from cascade.stack import Stack
 
 from commands import *
 

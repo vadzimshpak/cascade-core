@@ -2,12 +2,8 @@ import time
 import random
 import logging
 
-if __package__ and "." in __package__:
-    from ..src.command import Command
-    from ..src.logger import get_logger
-else:
-    from src.command import Command
-    from src.logger import get_logger
+from cascade.command import Command
+from cascade.logger import get_logger
 
 
 logger = get_logger(__name__)
