@@ -24,6 +24,19 @@ class TestPipeline1(Pipeline):
             SetStackCommand("Test0") >> Store("result"),
         ]
 
+class DynamicLogPipeline(Pipeline):
+    """
+    Pipeline with couple of commands
+    """
+
+    def __init__(self):
+        super().__init__()
+
+        self.pipeline = [
+            SetStackCommand("Test0") >> Store("test_0"),
+            Param("test_0") >> DynamicLogCommand(logging.DEBUG, "My string: %s"),
+        ]
+
 class PipelineTest(unittest.TestCase):
     def setUp(self):
         load_dotenv()
@@ -34,5 +47,9 @@ class PipelineTest(unittest.TestCase):
 
     def test_basic_pipeline(self):
         result = TestPipeline1() >> Store("res") >> Execute(self.stack)
+        if isinstance(result, Exception):
+            raise result
+
+        result = DynamicLogPipeline() >> Store("res") >> Execute(self.stack)
         if isinstance(result, Exception):
             raise result
