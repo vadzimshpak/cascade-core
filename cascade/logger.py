@@ -60,7 +60,7 @@ class TGHandler(logging.Handler):
 
 class CustomFileHandler(logging.FileHandler):
     def __init__(self, filename, mode = "a", encoding = None, delay = False, errors = None):
-        super().__init__(filename, mode, encoding, delay, errors, encoding="utf8")
+        super().__init__(filename, mode, encoding, delay, errors)
 
         formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
         self.setFormatter(formatter)
@@ -78,7 +78,7 @@ def get_logger(name: str):
     logger.setLevel(logging.DEBUG)
 
     logger.addHandler(ConsoleHandler(log_level, sys.stdout))
-    logger.addHandler(CustomFileHandler("log.txt"))
+    logger.addHandler(CustomFileHandler("log.txt", encoding="utf8"))
 
     if tg_token and tg_chats:
         logger.addHandler(TGHandler(tg_token, tg_chats, tg_log_level, tg_image_on_error))
