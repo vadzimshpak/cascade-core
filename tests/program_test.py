@@ -5,6 +5,7 @@ from cascade.program import Program
 from cascade.pipeline import Pipeline
 from cascade.operator import Execute, Store, Param
 from cascade.stack import Stack
+from cascade.logger import init_logger
 
 from cascade.commands import *
 
@@ -50,6 +51,7 @@ class ProgramTests(unittest.TestCase):
     def setUp(self):
         load_dotenv()
         self.stack = Stack()
+        init_logger()
 
     def tearDown(self):
         pass

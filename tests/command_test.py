@@ -3,11 +3,13 @@ import unittest
 from cascade.commands import *
 from cascade.operator import Execute
 from cascade.stack import Stack
+from cascade.logger import init_logger
 
 
 class CommandTests(unittest.TestCase):
     def setUp(self):
         self.stack = Stack()
+        init_logger()
 
     def tearDown(self):
         pass

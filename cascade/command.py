@@ -1,9 +1,9 @@
 from __future__ import annotations
 import time
 import random
+import logging
 from typing import TYPE_CHECKING, Self
 
-from .logger import get_logger
 from .stack import Stack
 
 
@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     from .operator import Operator
 
 
-logger = get_logger(__name__)
+logger = logging.getLogger("cascade")
 random.seed(time.time())
 
 class Command:

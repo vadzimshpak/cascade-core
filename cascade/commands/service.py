@@ -3,10 +3,8 @@ import random
 import logging
 
 from cascade.command import Command
-from cascade.logger import get_logger
 
-
-logger = get_logger(__name__)
+logger = logging.getLogger("cascade")
 random.seed(time.time())
 
 

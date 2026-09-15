@@ -4,13 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cascade-core"
-version = "0.1.35"
+version = "0.1.40"
 description = "Cascade Core"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.11"
 dependencies = [
-    "mss",
     "python-dotenv",
     "requests",
 ]

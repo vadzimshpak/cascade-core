@@ -1,7 +1,9 @@
-from .command import Command
-from .logger import get_logger
+import logging
 
-logger = get_logger(__name__)
+from .command import Command
+
+logger = logging.getLogger("cascade")
+
 
 class Pipeline(Command):
     def __init__(self):
