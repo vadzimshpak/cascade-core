@@ -60,7 +60,7 @@ class TGHandler(logging.Handler):
 
 class CustomFileHandler(logging.FileHandler):
     def __init__(self, filename, mode = "a", encoding = None, delay = False, errors = None):
-        super().__init__(filename, mode, encoding, delay, errors)
+        super().__init__(filename, mode, encoding, delay, errors, encoding="utf8")
 
         formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
         self.setFormatter(formatter)
