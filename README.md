@@ -7,7 +7,7 @@
 <div align="center">
 
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue)](https://www.python.org/downloads/)
-[![Version 0.1.4](https://img.shields.io/badge/Version-0.1.4-green)](https://github.com/vadzimshpak/cascade-core/releases)
+[![Version 0.1.41](https://img.shields.io/badge/Version-0.1.41-green)](https://github.com/vadzimshpak/cascade-core/releases)
 [![Tests](https://img.shields.io/github/actions/workflow/status/vadzimshpak/cascade-core/main.yml?branch=main&label=Tests)](https://github.com/vadzimshpak/cascade-core/actions)
 
 </div>

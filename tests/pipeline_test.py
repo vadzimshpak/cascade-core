@@ -24,6 +24,16 @@ class TestPipeline1(Pipeline):
             SetStackCommand("Test0") >> Store("result"),
         ]
 
+class TestPipeline2(Pipeline):
+    def __init__(self):
+        super().__init__()
+
+        self.pipeline = [
+            [
+                SetStackCommand("victory") >> Store("result")
+            ]
+        ]
+
 class DynamicLogPipeline(Pipeline):
     """
     Pipeline with couple of commands
@@ -53,3 +63,10 @@ class PipelineTest(unittest.TestCase):
         result = DynamicLogPipeline() >> Store("res") >> Execute(self.stack)
         if isinstance(result, Exception):
             raise result
+
+    def test_nested_result(self):
+        result = TestPipeline2() >> Execute(self.stack)
+        if isinstance(result, Exception):
+            raise result
+
+        assert result == "victory"

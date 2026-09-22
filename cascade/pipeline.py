@@ -31,7 +31,9 @@ class Pipeline(Command):
             i += 1
 
             if type(subject) == list:
-                self._process_chain(subject)
+                result = self._process_chain(subject)
+                if result:
+                    self._stack.update("result", result)
                 continue
 
             result = subject >> Execute(self._stack)

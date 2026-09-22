@@ -2,6 +2,7 @@ from __future__ import annotations
 import time
 import random
 import logging
+import os
 from typing import TYPE_CHECKING, Self
 
 from .stack import Stack
@@ -23,8 +24,11 @@ class Command:
         self._jump_on_success = None
         self._vars = []
 
+        self.delay = int(os.getenv("COMMAND_DELAY", "0"))
+
     def execute(self, stack: Stack):
         logger.debug(f"Execute subject: {type(self).__name__}")
+        time.sleep(self.delay)
 
         self._stack = stack
         result = self.body()
